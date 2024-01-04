@@ -27,17 +27,9 @@ public class MemberController extends Controller {
 			doJoin();
 			break;
 		case "login":
-			if (isLogined()) {
-				System.out.println("이미 로그인 상태야");
-				return;
-			}
 			doLogin();
 			break;
 		case "logout":
-			if (!isLogined()) {
-				System.out.println("이미 로그아웃 상태야");
-				return;
-			}
 			doLogout();
 			break;
 		default:
@@ -66,9 +58,9 @@ public class MemberController extends Controller {
 			System.out.println("비밀번호가 일치하지 않습니다");
 			return;
 		}
-		
+
 		loginedMember = member;
-		loginedMemberId = member.getId();
+
 		System.out.printf("로그인 성공! %s님 반갑습니다.\n", member.getName());
 
 	}
@@ -138,7 +130,6 @@ public class MemberController extends Controller {
 
 		return true;
 	}
-
 
 	public void makeTestData() {
 		System.out.println("테스트를 위한 회원 데이터를 생성합니다.");
